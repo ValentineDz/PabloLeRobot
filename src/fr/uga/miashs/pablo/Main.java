@@ -1,4 +1,4 @@
-package fr.uga.miashs.pablo;
+package src.fr.uga.miashs.pablo;
 
 import lejos.hardware.*;
 
@@ -11,6 +11,7 @@ public class Main {
 		//C'est valentine
 		//C'est clément
 		//C'est Emma
+		//C'ets Adrien
 	}
 
 }
