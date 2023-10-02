@@ -18,17 +18,27 @@ public class MoteurRoues {
 	
 	
 	public MoteurRoues(String vitesse) {
-		this.portRoue1 = new EV3LargeRegulatedMotor(MotorPort.A); //à définir sur notre robot
-		this.portRoue2 = new EV3LargeRegulatedMotor(MotorPort.B); //idem
-		this.roue1 = WheeledChassis.modelWheel(portRoue1, 0).offset(0); //obtenir le diametres des roues / la distance au moteur des roues
-		this.roue2 = WheeledChassis.modelWheel(portRoue2, 0).offset(0);
+		this.portRoue1 = new EV3LargeRegulatedMotor(MotorPort.A); //port roue droite
+		this.portRoue2 = new EV3LargeRegulatedMotor(MotorPort.B); //port roue gauche
+		this.roue1 = WheeledChassis.modelWheel(portRoue1, 56).offset(-70); //obtenir le diametres des roues / la distance au moteur des roues
+		this.roue2 = WheeledChassis.modelWheel(portRoue2, 56).offset(70);				
 		this.chassis = new WheeledChassis(new Wheel[] {roue1,roue2}, WheeledChassis.TYPE_DIFFERENTIAL); // type différential car elle ont 2 roues
 		this.pilot = new MovePilot(chassis);
-		setVitesse(vitesse);
+	//	setVitesse(vitesse);
 	}
 	
 	public void setVitesse(String v) {
-		// réaliser une fonction qui met une vitesse en fonction du nom qu'on donne : très rapide, rapide, moyen, lent
+		if (v.equals("rapide")) {
+			pilot.setAngularAcceleration(2000);
+		}
+	}
+	
+	public void avancer(double distance) {
+		pilot.travel(distance,true);
+	}
+	
+	public void reculer(double distance) {
+		pilot.travel(distance);
 	}
 	
 	
