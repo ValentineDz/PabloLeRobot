@@ -10,14 +10,9 @@ import lejos.utility.Delay;
 public class Main {
 
 	public static void main(String[] args) {
-	/*	MoteurRoues M = new MoteurRoues("rapide");
-		M.avancer(200);
-		System.out.println("fin");
-		Delay.nsDelay(5000); */
-		
-		EV3ColorSensor color = new EV3ColorSensor(SensorPort.S4);
-		color.setFloodlight(true);
-		// cc
-		
+		MoteurPinces p = new MoteurPinces();
+		p.ouverture(false);
+		//p.fermeture(false);
+		System.out.println("hello");
 	}
 }
