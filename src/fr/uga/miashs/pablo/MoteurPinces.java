@@ -5,10 +5,12 @@ import lejos.hardware.port.MotorPort;
 
 public class MoteurPinces {
 	private EV3MediumRegulatedMotor pinces;
+	private boolean estOuvert;
 
 	public MoteurPinces() {
 		pinces = new EV3MediumRegulatedMotor(MotorPort.A);
-		pinces.setSpeed(pinces.getMaxSpeed()); 
+		pinces.setSpeed(pinces.getMaxSpeed());
+		estOuvert = true;
 	}
 
 	/**
@@ -21,21 +23,25 @@ public class MoteurPinces {
 	/**
 	 * Ferme la pince
 	 * @param t si false, il fait seulement l'action, sinon il fait autre chose en parallèle
+	 * Change estOuvert
 	 * méthodes l'utilisant :
 	 */
 
 
 	public void fermeture (boolean t) { 
 		pinces.rotate(-700, t);
+		estOuvert = false;
 
 	}
 	/**
 	 * Ouvre la pince
 	 * @param t si false, il fait seulement l'action, sinon il fait autre chose en parallèle
+	 * Change estOuvert
 	 * méthodes l'utilisant :
 	 */
 
 	public void ouverture (boolean t) {
 		pinces.rotate(700, t);
+		estOuvert = true;
 	}
 }
