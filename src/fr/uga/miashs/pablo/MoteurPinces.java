@@ -1,30 +1,41 @@
 package src.fr.uga.miashs.pablo;
 
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
-import lejos.robotics.chassis.Chassis;
-import lejos.robotics.chassis.Wheel;
-import lejos.robotics.chassis.WheeledChassis;
-import lejos.robotics.navigation.MovePilot;
 
-public class MoteurPinces extends EV3LargeRegulatedMotor {
-	// classe concernant le moteur des pinces
-	private EV3LargeRegulateMotor pinces;
-	private EV3LargeRegulatedMotor portPinces;
-	
-	public MoteurPinces () {
-	this.portPinces = EV3LargeRegulatedMotor(MotorPort.C); // pas sur du port
+public class MoteurPinces {
+	private EV3MediumRegulatedMotor pinces;
+
+	public MoteurPinces() {
+		pinces = new EV3MediumRegulatedMotor(MotorPort.A);
+		pinces.setSpeed(pinces.getMaxSpeed()); 
 	}
-	
-	public MoteurPinces (Port pincesPort) {
-		pinces = new MindsensorsGlideWheelMRegulatedMotor(portPinces);
-		pinces.setSpeed((int) pinces.getMaxSpeed());} // pour aller viiiiteee
-	
-	public void initialisation (int i) { // initialiser l'ouverture des pinces � chaque fois qu'il s'allume
-		pinces.rotate (i, false)}
-		
-	public void fermeture (boolean t) // angle de femrture pour que �a bloque pas sur le pallet
-		pinces.rotate (//angle d'ouverture jsp combien c'est, t)
-	
-	public void oiverture (boolean t) // angle d'oiverture pour pas que �a bloque sur le pallet
-		pinces.rotate (//angle de fermeture jsp combien c'est, t)
+
+	/**
+	 * Ouvre ou ferme la pince pour un cas extrême
+	 * @param i, si i<0 rapproche les pinces, si i>0 éloigne les pinces
+	 */
+	public void initialisation (int i) { 
+		pinces.rotate (i, false);
+	}
+	/**
+	 * Ferme la pince
+	 * @param t si false, il fait seulement l'action, sinon il fait autre chose en parallèle
+	 * méthodes l'utilisant :
+	 */
+
+
+	public void fermeture (boolean t) { 
+		pinces.rotate(-700, t);
+
+	}
+	/**
+	 * Ouvre la pince
+	 * @param t si false, il fait seulement l'action, sinon il fait autre chose en parallèle
+	 * méthodes l'utilisant :
+	 */
+
+	public void ouverture (boolean t) {
+		pinces.rotate(700, t);
+	}
+}
