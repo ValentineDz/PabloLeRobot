@@ -18,8 +18,8 @@ public class MoteurRoues {
 	
 	
 	public MoteurRoues(String vitesse) {
-		this.portRoue1 = new EV3LargeRegulatedMotor(MotorPort.A); //port roue droite
-		this.portRoue2 = new EV3LargeRegulatedMotor(MotorPort.B); //port roue gauche
+		this.portRoue1 = new EV3LargeRegulatedMotor(MotorPort.C); //port roue droite
+		this.portRoue2 = new EV3LargeRegulatedMotor(MotorPort.D); //port roue gauche
 		this.roue1 = WheeledChassis.modelWheel(portRoue1, 56).offset(-70); //obtenir le diametres des roues / la distance au moteur des roues
 		this.roue2 = WheeledChassis.modelWheel(portRoue2, 56).offset(70);				
 		this.chassis = new WheeledChassis(new Wheel[] {roue1,roue2}, WheeledChassis.TYPE_DIFFERENTIAL); // type différential car elle ont 2 roues

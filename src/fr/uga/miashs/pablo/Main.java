@@ -10,9 +10,8 @@ import lejos.utility.Delay;
 public class Main {
 
 	public static void main(String[] args) {
-		MoteurPinces p = new MoteurPinces();
-		p.ouverture(false);
-		//p.fermeture(false);
+		MoteurRoues m = new MoteurRoues("rapide");
+		m.avancer(500000);
 		System.out.println("hello");
 	}
 }
