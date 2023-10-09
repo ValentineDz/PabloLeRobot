@@ -28,8 +28,8 @@ public class MoteurPinces {
 	 */
 
 
-	public void fermeture (boolean t) { 
-		pinces.rotate(-700, t);
+	public void fermeture(boolean t) { 
+		pinces.rotate(-700, false);
 		estOuvert = false;
 
 	}
@@ -41,7 +41,7 @@ public class MoteurPinces {
 	 */
 
 	public void ouverture (boolean t) {
-		pinces.rotate(700, t);
+		pinces.rotate(700, false);
 		estOuvert = true;
 	}
 }
