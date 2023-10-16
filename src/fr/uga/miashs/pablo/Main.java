@@ -10,10 +10,47 @@ import lejos.utility.Delay;
 
 
 public class Main {
-
-	public static void main(String[] args) {
-		UltraSonicSensor s = new UltraSonicSensor(SensorPort.S3);
-		float caca = s.distance();
-		System.out.println(caca);
+	
+	public enum Etat {
+		Debut,
+		RecherchePalet,
+		RamenerPalet,
+		PrendrePalet,
+		Fin,
+		Pause
 	}
+	
+	public static void main(String[] args) {
+		UltraSonicSensor ultrasonic = new UltraSonicSensor(SensorPort.S3);
+		ColorSensor color = new ColorSensor(SensorPort.S1);
+		TouchSensor touch = new TouchSensor(SensorPort.S2);
+		MoteurPinces pinces = new MoteurPinces();
+		MoteurRoues roues = new MoteurRoues("rapide");
+		Etat etat = Etat.Debut;
+
+		while(true) {
+			Button.ENTER.waitForPressAndRelease();
+			switch(etat) {
+			case Debut:
+				
+			case RecherchePalet:
+				
+			case RamenerPalet:
+				
+			case PrendrePalet:
+				
+			case Pause:
+				
+			case Fin:
+			}
+			
+	
+		}
+	}
+	
+	
+	public void getPremierPalet() {
+		
+	}
+
 }
