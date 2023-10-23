@@ -32,13 +32,23 @@ public class Main {
 			Button.ENTER.waitForPressAndRelease();
 			switch(etat) {
 			case Debut:
-				
+				 //rapide pdt 55cm
+                // palet vers 60cm 
+                //avance lent de 5cm
+                // avancer jusqu'à que sensortouch(true) 
+                //stop
+                // fermer pinces 
+                //tourner 90degres
+                // avancer de moitié d'une case(30cm)
+                // tourner 90 degres 
+                // avancer jusqu'à ligne blanche
 			case RecherchePalet:
-				
+				 // tourne sur lui même pour chercher un palet, quand détecte passe à l'état d'après
 			case RamenerPalet:
-				
+				// trouve quelle bande blanche il veut dépasser (besoin de savoir sa position)
+                // lacher le pallet , reculer et se tourner vers le mur le plus loin, avance jusq'uà dépasser la ligne blanche
 			case PrendrePalet:
-				
+				// tourne de l'angle, avance vers le palet de d, s'arrête quand touch true & ferme pince
 			case Pause:
 				
 			case Fin:
