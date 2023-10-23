@@ -1,4 +1,4 @@
-package src.fr.uga.miashs.pablo;
+package fr.uga.miashs.pablo;
 
 import java.util.Timer;
 
@@ -15,17 +15,30 @@ public class Main {
 		while(true) {
 			Button.ENTER.waitForPressAndRelease();
 			switch(etat) {
-			case Debut:
-				 //rapide pdt 55cm
-                // palet vers 60cm 
-                //avance lent de 5cm
-                // avancer jusqu'à que sensortouch(true) 
-                //stop
-                // fermer pinces 
-                //tourner 90degres
-                // avancer de moitié d'une case(30cm)
-                // tourner 90 degres 
-                // avancer jusqu'à ligne blanche
+			case Debut :
+				setVitesse(rapide);
+				avancer(556);
+				setVitesse(lent);
+				avancer(51);
+				while(sensortouch=false) {
+					avancer(500);
+				}
+				fermeture();
+				tourner(80.5);
+				setVitesse(moyen);
+				avancer(300);
+				tourner(-80.5);
+				setVitesse(rapide);
+				while () { //tant que il n'a pas dépassé la ligne blanche
+					avancer();
+				}
+				avancer(150);
+				ouverture();
+				while() { // recule jusqu'a qu'il capte ligne blanche
+					reculer();
+				}
+				tourner(161);
+				
 			case RecherchePalet:
 				 // tourne sur lui même pour chercher un palet, quand détecte passe à l'état d'après
 			case RamenerPalet:
