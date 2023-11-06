@@ -11,33 +11,32 @@ import lejos.utility.Delay;
 
 public class Main {
 
-<<<<<<< Updated upstream
-		while(true) {
+	while(true) {
 			Button.ENTER.waitForPressAndRelease();
 			switch(etat) {
 			case Debut :
-				setVitesse(rapide);
-				avancer(556);
-				setVitesse(lent);
-				avancer(51);
-				while(sensortouch=false) {
-					avancer(500);
+				MoteurRoues;
+				MoteurRoues.avancer(556);
+				MoteurRoues.setVitesse("lent");
+				MoteurRoues.avancer(51);
+				while(TouchSensor.isPressed()) {
+					MoteurRoues.avancer(500);
 				}
-				fermeture();
-				tourner(80.5);
-				setVitesse(moyen);
-				avancer(300);
-				tourner(-80.5);
-				setVitesse(rapide);
+				MoteurPinces.fermeture();
+				MoteurRoues.tourner(80.5);
+				MoteurRoues.setVitesse(moyen);
+				MoteurRoues.avancer(300);
+				MoteurRoues.tourner(-80.5);
+				MoteurRoues.setVitesse(rapide);
 				while () { //tant que il n'a pas dépassé la ligne blanche
-					avancer();
+					MoteurRoues.avancer();
 				}
-				avancer(150);
-				ouverture();
+				MoteurRoues.avancer(150);
+				MoteurPinces.ouverture();
 				while() { // recule jusqu'a qu'il capte ligne blanche
-					reculer();
+					MoteursRoues.reculer();
 				}
-				tourner(161);
+				MoteurRoues.tourner(161);
 				
 			case RecherchePalet:
 				 // tourne sur lui même pour chercher un palet, quand détecte passe à l'état d'après
@@ -50,6 +49,7 @@ public class Main {
 				
 			case Fin:
 			}
+			
 			
 	
 =======
@@ -90,10 +90,40 @@ public class Main {
 		for (int i= 0 ; i < tab.length ; i++) { 
 			tab[i] = s.distance(); 
 			Delay.msDelay(10);
->>>>>>> Stashed changes
 		}
 		return tab;
 	}
 
 
-}
+
+	public void run(){
+		while(true) {
+			Button.ENTER.waitForPressAndRelease();
+			switch(etat) {
+			case Debut :
+				MoteurRoues.setVitesse("rapide");
+				MoteurRoues.avancer(556);
+				MoteurRoues.setVitesse("lent");
+				MoteurRoues.avancer(51);
+				while(TouchSensor.isPressed()) {
+					MoteurRoues.avancer(500);
+				}
+				MoteurPinces.fermeture();
+				MoteurRoues.tourner(80.5);
+				MoteurRoues.setVitesse(moyen);
+				MoteurRoues.avancer(300);
+				MoteurRoues.tourner(-80.5);
+				MoteurRoues.setVitesse(rapide);
+				while () { //tant que il n'a pas dépassé la ligne blanche
+					MoteurRoues.avancer();
+				}
+				MoteurRoues.avancer(150);
+				MoteurPinces.ouverture();
+				while() { // recule jusqu'a qu'il capte ligne blanche
+					MoteursRoues.reculer();
+				}
+				MoteurRoues.tourner(161);
+		}
+	
+	
+

@@ -1,4 +1,4 @@
-package src.fr.uga.miashs.pablo;
+package fr.uga.miashs.pablo;
 
 import lejos.hardware.Button;
 import lejos.hardware.port.Port;
